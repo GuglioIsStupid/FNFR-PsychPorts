@@ -31,7 +31,7 @@ return {
 		song = songNum
 		difficulty = songAppend
 
-		enemyIcon:animate("daddy dearest", false)
+		enemyIcon:animate("drtrayaurus", false)
 
 		if song == 1 then 
 			trayBG = graphics.newImage(graphics.imagePath("slut/traybg"))
@@ -63,6 +63,8 @@ return {
 			enemy = boyfriend
 			bg = love.graphics.newVideo("videos/1.ogv")
 		end
+
+		boyfriendIcon:animate("dantdm")
 
 		self:load()
 	end,
@@ -119,13 +121,13 @@ return {
 			slutbop.y = -175 + math.sin(love.timer.getTime()) * 30
 		end
 
-		if health >= 80 then
-			if enemyIcon:getAnimName() == "daddy dearest" then
-				enemyIcon:animate("daddy dearest losing", false)
+		if health >= 1.595 then
+			if enemyIcon:getAnimName() == "drtrayaurus" then
+				enemyIcon:animate("drtrayaurus losing", false)
 			end
 		else
-			if enemyIcon:getAnimName() == "daddy dearest losing" then
-				enemyIcon:animate("daddy dearest", false)
+			if enemyIcon:getAnimName() == "drtrayaurus losing" then
+				enemyIcon:animate("drtrayaurus", false)
 			end
 		end
 

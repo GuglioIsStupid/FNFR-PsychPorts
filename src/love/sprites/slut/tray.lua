@@ -70,10 +70,10 @@ return graphics.newSprite(
 		{x = 951, y = 1269, width = 459, height = 554, offsetX = -14, offsetY = -67, offsetWidth = 508, offsetHeight = 623} -- 66: trayup0009
 	},
 	{
-		["singDOWN"] = {start = 1, stop = 10, speed = 24, offsetX = 0, offsetY = 0},
-		["singLEFT"] = {start = 37, stop = 46, speed = 24, offsetX = 0, offsetY = 0},
-		["singRIGHT"] = {start = 47, stop = 56, speed = 24, offsetX = 0, offsetY = 0},
-		["singUP"] = {start = 57, stop = 66, speed = 24, offsetX = 0, offsetY = 0},
+		["singDOWN"] = {start = 1, stop = 10, speed = 24, offsetX = -12, offsetY = -15},
+		["singLEFT"] = {start = 37, stop = 46, speed = 24, offsetX = 47, offsetY = 4},
+		["singRIGHT"] = {start = 47, stop = 56, speed = 24, offsetX = 0, offsetY = -158},
+		["singUP"] = {start = 57, stop = 66, speed = 24, offsetX = -18, offsetY = 12},
 		["idle"] = {start = 11, stop = 36, speed = 24, offsetX = 0, offsetY = 0},
 	},
 	"idle",

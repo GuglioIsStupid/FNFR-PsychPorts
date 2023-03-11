@@ -973,18 +973,26 @@ return {
 
 		if health > 2 then
 			health = 2
-		elseif health > 0.325 and boyfriendIcon:getAnimName() == "boyfriend losing" then
+		elseif health > 0.325 and (boyfriendIcon:getAnimName() == "boyfriend losing" or boyfriendIcon:getAnimName() == "dantdm losing") then
 			if not pixel then 
-				boyfriendIcon:animate("boyfriend", false)
+				if curWeek == "danTDM" then
+					boyfriendIcon:animate("dantdm", false)
+				else
+					boyfriendIcon:animate("boyfriend", false)
+				end
 			else
 				boyfriendIcon:animate("boyfriend (pixel)", false)
 			end
 		elseif health <= 0 then -- Game over
 			if not settings.practiceMode then Gamestate.push(gameOver) end
 			health = 0
-		elseif health <= 0.325 and boyfriendIcon:getAnimName() == "boyfriend" then
+		elseif health <= 0.325 and (boyfriendIcon:getAnimName() == "boyfriend" or boyfriendIcon:getAnimName() == "dantdm") then
 			if not pixel then 
-				boyfriendIcon:animate("boyfriend losing", false)
+				if curWeek == "danTDM" then
+					boyfriendIcon:animate("dantdm losing", false)
+				else
+					boyfriendIcon:animate("boyfriend losing", false)
+				end
 			end
 		end
 
@@ -1087,7 +1095,9 @@ return {
 			love.graphics.pop()
 			return 
 		end
-		self:drawHealthbar()
+		if curWeek ~= "danTDM" or (curWeek == "danTDM" and song ~= 2) then
+			self:drawHealthbar()
+		end
 		love.graphics.push()
 			love.graphics.translate(lovesize.getWidth() / 2, lovesize.getHeight() / 2)
 			if not settings.downscroll then
@@ -1105,13 +1115,15 @@ return {
 						graphics.setColor(0.6, 0.6, 0.6, 0.6)
 					end
 				end
-				if not pixel then
-					enemyArrows[i]:draw()
-				else
-					if not settings.downscroll then
-						enemyArrows[i]:udraw(8, 8)
+				if curWeek ~= "danTDM" or (curWeek == "danTDM" and song ~= 2) then
+					if not pixel then
+						enemyArrows[i]:draw()
 					else
-						enemyArrows[i]:udraw(8, -8)
+						if not settings.downscroll then
+							enemyArrows[i]:udraw(8, 8)
+						else
+							enemyArrows[i]:udraw(8, -8)
+						end
 					end
 				end
 				graphics.setColor(1, 1, 1)
@@ -1128,43 +1140,45 @@ return {
 				love.graphics.push()
 					love.graphics.translate(0, -musicPos)
 
-					love.graphics.push()
-						for j = #enemyNotes[i], 1, -1 do
-							if enemyNotes[i][j].y - musicPos <= 560 then
-								local animName = enemyNotes[i][j]:getAnimName()
+					if curWeek ~= "danTDM" or (curWeek == "danTDM" and song ~= 2) then
+						love.graphics.push()
+							for j = #enemyNotes[i], 1, -1 do
+								if enemyNotes[i][j].y - musicPos <= 560 then
+									local animName = enemyNotes[i][j]:getAnimName()
 
-								if animName == "hold" or animName == "end" then
-									if settings.middleScroll then
-										graphics.setColor(1, 1, 1, 0.3)
-									else
-										graphics.setColor(1, 1, 1, 0.5)
-									end
-
-								else
-									if settings.middleScroll then
-										graphics.setColor(1, 1, 1, 0.5)
-									else
-										graphics.setColor(1, 1, 1, 1)
-									end
-								end
-
-								if not pixel then
-									enemyNotes[i][j]:draw()
-								else
-									if not settings.downscroll then
-										enemyNotes[i][j]:udraw(8, 8)
-									else
-										if enemyNotes[i][j]:getAnimName() == "end" then
-											enemyNotes[i][j]:udraw(8, 8)
+									if animName == "hold" or animName == "end" then
+										if settings.middleScroll then
+											graphics.setColor(1, 1, 1, 0.3)
 										else
-											enemyNotes[i][j]:udraw(8, -8)
+											graphics.setColor(1, 1, 1, 0.5)
+										end
+
+									else
+										if settings.middleScroll then
+											graphics.setColor(1, 1, 1, 0.5)
+										else
+											graphics.setColor(1, 1, 1, 1)
 										end
 									end
+
+									if not pixel then
+										enemyNotes[i][j]:draw()
+									else
+										if not settings.downscroll then
+											enemyNotes[i][j]:udraw(8, 8)
+										else
+											if enemyNotes[i][j]:getAnimName() == "end" then
+												enemyNotes[i][j]:udraw(8, 8)
+											else
+												enemyNotes[i][j]:udraw(8, -8)
+											end
+										end
+									end
+									graphics.setColor(1, 1, 1)
 								end
-								graphics.setColor(1, 1, 1)
 							end
-						end
-					love.graphics.pop()
+						love.graphics.pop()
+					end
 					love.graphics.push()
 						for j = #boyfriendNotes[i], 1, -1 do
 							if boyfriendNotes[i][j].y - musicPos <= 560 then
