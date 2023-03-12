@@ -117,6 +117,8 @@ return {
 		boyfriend = nil
 		girlfriend = nil
 
+        bgImg = nil
+
 		graphics.clearCache()
 
 		weeks:leave()

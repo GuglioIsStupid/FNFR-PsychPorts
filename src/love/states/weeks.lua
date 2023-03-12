@@ -973,10 +973,14 @@ return {
 
 		if health > 2 then
 			health = 2
-		elseif health > 0.325 and (boyfriendIcon:getAnimName() == "boyfriend losing" or boyfriendIcon:getAnimName() == "dantdm losing") then
+		elseif health > 0.325 and (boyfriendIcon:getAnimName() == "boyfriend losing" or boyfriendIcon:getAnimName() == "dantdm losing" 
+			or boyfriendIcon:getAnimName() == "quagbf losing") then
+
 			if not pixel then 
 				if curWeek == "danTDM" then
 					boyfriendIcon:animate("dantdm", false)
+				elseif curWeek == "quagmire" then
+					boyfriendIcon:animate("quagbf", false)
 				else
 					boyfriendIcon:animate("boyfriend", false)
 				end
@@ -986,10 +990,14 @@ return {
 		elseif health <= 0 then -- Game over
 			if not settings.practiceMode then Gamestate.push(gameOver) end
 			health = 0
-		elseif health <= 0.325 and (boyfriendIcon:getAnimName() == "boyfriend" or boyfriendIcon:getAnimName() == "dantdm") then
+		elseif health <= 0.325 and (boyfriendIcon:getAnimName() == "boyfriend" or boyfriendIcon:getAnimName() == "dantdm"
+			or boyfriendIcon:getAnimName() == "quagbf") then
+
 			if not pixel then 
 				if curWeek == "danTDM" then
 					boyfriendIcon:animate("dantdm losing", false)
+				elseif curWeek == "quagmire" then
+					boyfriendIcon:animate("quagbf losing", false)
 				else
 					boyfriendIcon:animate("boyfriend losing", false)
 				end
