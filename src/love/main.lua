@@ -335,7 +335,7 @@ function love.load()
 	firstStartup = true
 
 	-- Load weeks
-	weeks = require "states.weeks"
+	weeks = require "states.canvasWeeks"
 
 	-- Load substates
 	gameOver = require "substates.game-over"
@@ -427,9 +427,10 @@ function love.load()
 end
 
 function love.resize(width, height)
+	if arrowCanvas then 
+		arrowCanvas = love.graphics.newCanvas(w, h)
+	end
 	lovesize.resize(width, height)
-
-	scissorScale = height / 720
 end
 
 function love.keypressed(key)
