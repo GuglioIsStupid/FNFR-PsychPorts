@@ -343,11 +343,13 @@ function love.load()
 
 	-- Load week data
 	weekData = {
-		require "weeks.slut"
+		require "weeks.slut",
+		require "weeks.ambasin"
 	}
 
 	weekDesc = { -- Add your week description here
 		"SLUT AND HOMOPHOBIC",
+		"ABOUT.COM"
 	}
 
 	weekMeta = { -- Add/remove weeks here
@@ -356,8 +358,14 @@ function love.load()
 			{
 				"Slut and homophobic",
 				"What are you doing?"
-			}
+			},
 		},
+		{
+			"Ambasin",
+			{
+				"Ambasin"
+			}
+		}
 	}
 
 	-- LÖVE init

@@ -7,6 +7,8 @@ return graphics.newSprite(
 		{x = 450, y = 0, width = 150, height = 150, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 4: DanTDM Losing
 		{x = 600, y = 0, width = 150, height = 150, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 5: DrTrayaurus
 		{x = 750, y = 0, width = 150, height = 150, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 6: DrTrayaurus Losing
+		{x = 900, y = 0, width = 150, height = 150, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 7: Ambasin
+		{x = 1050, y = 0, width = 150, height = 150, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 8: Ambasin Losing
 	},
 	{
 		["boyfriend"] = {start = 1, stop = 1, speed = 0, offsetX = 0, offsetY = 0},
@@ -15,6 +17,8 @@ return graphics.newSprite(
 		["dantdm losing"] = {start = 4, stop = 4, speed = 0, offsetX = 0, offsetY = 0},
 		["drtrayaurus"] = {start = 5, stop = 5, speed = 0, offsetX = 0, offsetY = 0},
 		["drtrayaurus losing"] = {start = 6, stop = 6, speed = 0, offsetX = 0, offsetY = 0},
+		["ambasin"] = {start = 7, stop = 7, speed = 0, offsetX = 0, offsetY = 0},
+		["ambasin losing"] = {start = 8, stop = 8, speed = 0, offsetX = 0, offsetY = 0},
 	},
 	"boyfriend",
 	false

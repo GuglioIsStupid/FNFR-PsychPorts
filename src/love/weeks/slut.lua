@@ -64,6 +64,8 @@ return {
 			bg = love.graphics.newVideo("videos/1.ogv")
 		end
 
+		camera.defaultZoom = 1
+
 		boyfriendIcon:animate("dantdm")
 
 		self:load()
